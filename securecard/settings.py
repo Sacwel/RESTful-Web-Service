@@ -10,6 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
+import os
+
 from pathlib import Path
 import django_heroku
 
@@ -38,7 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
     'django.contrib.staticfiles',
     'myapi',
     'rest_framework'
@@ -84,7 +85,7 @@ DATABASES = {
         'NAME': 'Ecard',
         'USER': 'admin',
         'PASSWORD': 'adminpass1-',
-        'HOST': '34.90.236.29',
+        'HOST': '127.0.0.1',
         'PORT': '3306',
     }
 }
@@ -127,7 +128,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())
